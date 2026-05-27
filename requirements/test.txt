@@ -9,15 +9,15 @@ asgiref==3.8.1
     #   -r requirements/../requirements.txt
     #   django
 backoff==2.2.1
-    # via -r requirements/../requirements.txt
-boto3==1.38.43
-    # via -r requirements/../requirements.txt
-botocore==1.38.43
+    # via -r requirements.txt
+boto3==1.43.9
+    # via -r requirements.txt
+botocore==1.43.9
     # via
     #   -r requirements/../requirements.txt
     #   boto3
     #   s3transfer
-certifi==2025.6.15
+certifi==2026.4.22
     # via
     #   -r requirements/../requirements.txt
     #   requests
@@ -29,11 +29,11 @@ charset-normalizer==3.4.2
     # via
     #   -r requirements/../requirements.txt
     #   requests
-click==8.2.1
+click==8.4.0
     # via
     #   -r requirements/../requirements.txt
     #   edx-django-utils
-coverage[toml]==7.9.1
+coverage[toml]==7.14.0
     # via pytest-cov
     # via
     #   -c requirements/common_constraints.txt
@@ -54,12 +54,12 @@ django-waffle==5.0.0
     #   -r requirements/../requirements.txt
     #   edx-django-utils
 edx-django-release-util==1.5.0
-    # via -r requirements/../requirements.txt
-edx-django-utils==8.0.0
-    # via -r requirements/../requirements.txt
-gunicorn==23.0.0
-    # via -r requirements/../requirements.txt
-idna==3.10
+    # via -r requirements.txt
+edx-django-utils==8.0.1
+    # via -r requirements.txt
+gunicorn==26.0.0
+    # via -r requirements.txt
+idna==3.15
     # via
     #   -r requirements/../requirements.txt
     #   requests
@@ -72,11 +72,11 @@ jmespath==1.0.1
     #   -r requirements/../requirements.txt
     #   boto3
     #   botocore
-mysqlclient==2.2.7
-    # via -r requirements/../requirements.txt
-newrelic==10.14.0
-    # via -r requirements/../requirements.txt
-packaging==25.0
+mysqlclient==2.2.8
+    # via -r requirements.txt
+newrelic==13.0.0
+    # via -r requirements.txt
+packaging==26.2
     # via
     #   -r requirements/../requirements.txt
     #   gunicorn
@@ -105,7 +105,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/../requirements.txt
     #   edx-django-utils
-pytest==8.4.1
+pytest==9.0.3
     # via
     #   -r requirements/test.in
     #   pytest-cov
@@ -124,9 +124,9 @@ pyyaml==6.0.2
     # via
     #   -r requirements/../requirements.txt
     #   edx-django-release-util
-requests==2.32.4
-    # via -r requirements/../requirements.txt
-s3transfer==0.13.0
+requests==2.34.2
+    # via -r requirements.txt
+s3transfer==0.17.0
     # via
     #   -r requirements/../requirements.txt
     #   boto3
@@ -139,11 +139,11 @@ sqlparse==0.5.3
     # via
     #   -r requirements/../requirements.txt
     #   django
-stevedore==5.4.1
+stevedore==5.8.0
     # via
     #   -r requirements/../requirements.txt
     #   edx-django-utils
-urllib3==2.2.3
+urllib3==2.7.0
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/../requirements.txt
