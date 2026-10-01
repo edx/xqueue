@@ -13,8 +13,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ['py311', 'py312']
-        env-name: ['django42','django52', 'quality']
+        python-version: ['py312']
+        env-name: ['django52', 'quality']
         db-version: ['mysql80']
 
     steps:
@@ -26,11 +26,11 @@ jobs:
 
     - name: Setup Python ${{ matrix.python-version }} inside container
       run: |
-        PY_VER=$(if [ "${{ matrix.python-version }}" = "py312" ]; then echo "3.12"; else echo "3.11"; fi)
+        PY_VER=3.12
 
-        docker exec xqueue bash -c "
+        docker exec -e DEBIAN_FRONTEND=noninteractive xqueue bash -c "
           apt update &&
-          apt install -y software-properties-common curl &&
+          apt install -y software-properties-common curl build-essential pkg-config default-libmysqlclient-dev git memcached &&
           add-apt-repository ppa:deadsnakes/ppa -y &&
           apt install -y python$PY_VER python$PY_VER-dev python$PY_VER-venv &&
           update-alternatives --install /usr/bin/python3 python3 /usr/bin/python$PY_VER 1 &&
@@ -43,4 +43,4 @@ jobs:
         TOXENV: ${{ matrix.python-version }}-${{ matrix.env-name }}
       run: |
         docker exec xqueue bash -c "cd /edx/app/xqueue/xqueue/; /tmp/venv/bin/pip install -r requirements/ci.txt"
-        docker exec xqueue bash -c "cd /edx/app/xqueue/xqueue/ && DB_HOST=${{ matrix.db-version }} tox -e ${TOXENV}"
+        docker exec xqueue bash -c "cd /edx/app/xqueue/xqueue/ && DB_HOST=${{ matrix.db-version }} /tmp/venv/bin/tox -e ${TOXENV}"
