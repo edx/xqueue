@@ -57,9 +57,6 @@ upgrade: $(COMMON_CONSTRAINTS_TXT) ## update the requirements/*.txt files with t
 	pip-compile --upgrade -o requirements/test.txt requirements/test.in
 	pip-compile --upgrade -o requirements/ci.txt requirements/ci.in
 	pip-compile --upgrade -o requirements/dev.txt requirements/dev.in
-	# Let tox control the Django version for tests
-	sed '/^[dD]jango==/d' requirements/test.txt > requirements/test.tmp
-	mv requirements/test.tmp requirements/test.txt
 
 quality: ## check coding style with pycodestyle and pylint
 	isort --recursive --check-only submission_queue/ xqueue/
